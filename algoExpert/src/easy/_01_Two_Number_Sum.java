@@ -43,9 +43,7 @@ public class _01_Two_Number_Sum {
 				set.add(target - num);
 			}
 		}
-
 		return new int[] {};
-
 	}
 
 	// O(nlog(n)) - Time Complexity & O(1) - Space Complexity
@@ -66,7 +64,6 @@ public class _01_Two_Number_Sum {
 				right--;
 			}
 		}
-
 		return new int[] {};
 
 	}
