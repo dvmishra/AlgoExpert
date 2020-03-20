@@ -19,58 +19,56 @@ import java.util.HashSet;
  */
 
 public class _01_Two_Number_Sum {
-	
+
 	public static void main(String[] args) {
-		
+
 		int arr[];
-		
-		int[] input = {3,5,-4,8,11,1,-1,6};
+
+		int[] input = { 3, 5, -4, 8, 11, 1, -1, 6 };
 		int target = 10;
 		arr = twoNumberSum(input, target);
 		arr = twoNumberSumOptimised(input, target);
 	}
-	
+
 	// O(n) - Time Complexity & O(n) - Space Complexity
 	static int[] twoNumberSum(int array[], int target) {
-		
+
 		HashSet<Integer> set = new HashSet<>();
-		
-		for(int num : array) {
-			
-			if(set.contains(num)) 
-				return new int[] {num, target - num};
+
+		for (int num : array) {
+
+			if (set.contains(num))
+				return new int[] { num, target - num };
 			else {
-				set.add(target-num);
+				set.add(target - num);
 			}
 		}
-		
+
 		return new int[] {};
-		
+
 	}
-	
+
 	// O(nlog(n)) - Time Complexity & O(1) - Space Complexity
-		static int[] twoNumberSumOptimised(int array[], int target) {
-			
-			Arrays.sort(array);
-			int left = 0;
-			int right = array.length -1;
-			
-			while (left < right) {
-				
-				int sumOfLeftAndRight = array[left]+array[right];
-				if(sumOfLeftAndRight == target) {
-					return new int[] {array[left],array[right]};
-				}
-				else if (sumOfLeftAndRight < target) {
-					left++;
-				}
-				else {
-					right--;
-				}				
+	static int[] twoNumberSumOptimised(int array[], int target) {
+
+		Arrays.sort(array);
+		int left = 0;
+		int right = array.length - 1;
+
+		while (left < right) {
+
+			int sumOfLeftAndRight = array[left] + array[right];
+			if (sumOfLeftAndRight == target) {
+				return new int[] { array[left], array[right] };
+			} else if (sumOfLeftAndRight < target) {
+				left++;
+			} else {
+				right--;
 			}
-			
-			return new int[] {};
-			
 		}
+
+		return new int[] {};
+
+	}
 
 }
